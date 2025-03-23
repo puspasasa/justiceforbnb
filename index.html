@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justice for BNB - 打地鼠游戏</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="twitter-link">
+            <a href="https://x.com/JAILFreddie" target="_blank">
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="twitter-logo">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                </svg>
+            </a>
+        </div>
+        <header>
+            <h1>Justice for BNB</h1>
+            <div class="score-container">
+                <div class="score">
+                    <span>已追回: </span>
+                    <span id="score">0.00</span>
+                    <span> BNB</span>
+                </div>
+                <div class="freddi-balance">
+                    <span>Freddie余额: </span>
+                    <span id="freddi-balance">1000.00</span>
+                    <span> BNB</span>
+                </div>
+            </div>
+            <div class="game-info">
+                <div class="level">
+                    <span>关卡: </span>
+                    <span id="level">1</span>
+                    <span id="level-name">（初次卷钱）</span>
+                </div>
+                <div class="timer">
+                    <span>剩余时间: </span>
+                    <span id="timer">30</span>
+                    <span> 秒</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="game-board">
+            <!-- 游戏区域，地鼠将在这里出现 -->
+            <div id="game-field"></div>
+        </div>
+
+        <div class="controls">
+            <button id="start-button">开始游戏</button>
+            <button id="next-level" style="display: none;">下一关</button>
+            <button id="restart-button" style="display: none;">重新开始</button>
+        </div>
+
+        <div id="message-box" class="message-box">
+            <div id="message-content"></div>
+            <button id="message-close">关闭</button>
+        </div>
+
+        <div id="game-over" class="game-over">
+            <h2>游戏结束</h2>
+            <p>你成功追回了 <span id="final-score">0.00</span> BNB!</p>
+            <button id="play-again">再玩一次</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

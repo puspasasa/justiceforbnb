@@ -1,0 +1,335 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f0f8ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.game-container {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+/* Twitter链接 */
+.twitter-link {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 10;
+}
+
+.twitter-logo {
+    width: 30px;
+    height: 30px;
+    fill: #1DA1F2;
+    transition: all 0.3s ease;
+}
+
+.twitter-logo:hover {
+    transform: scale(1.2);
+    fill: #0c85d0;
+}
+
+/* 标题和信息区域 */
+header {
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #f3ba2f; /* BNB黄金色 */
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.score-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.score, .freddi-balance {
+    background-color: #f3f3f3;
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.score span:nth-child(2), .freddi-balance span:nth-child(2) {
+    font-weight: bold;
+    color: #f3ba2f;
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.level, .timer {
+    background-color: #f3f3f3;
+    padding: 8px 12px;
+    border-radius: 8px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.timer span:nth-child(2) {
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+/* 游戏区域 */
+.game-board {
+    margin: 20px auto;
+    position: relative;
+}
+
+#game-field {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.hole {
+    width: 100px;
+    height: 100px;
+    background-color: #654321; /* 土色 */
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.mole {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center top;
+    position: absolute;
+    bottom: -100%;
+    transition: bottom 0.2s ease-out;
+    cursor: pointer;
+}
+
+.mole.active {
+    bottom: 0;
+}
+
+/* 按钮样式 */
+button {
+    background-color: #f3ba2f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #e5a800;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#start-button {
+    background-color: #2ecc71;
+}
+
+#start-button:hover {
+    background-color: #27ae60;
+}
+
+#restart-button {
+    background-color: #e74c3c;
+}
+
+#restart-button:hover {
+    background-color: #c0392b;
+}
+
+#next-level {
+    background-color: #3498db;
+}
+
+#next-level:hover {
+    background-color: #2980b9;
+}
+
+/* 消息框 */
+.message-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+#message-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 80%;
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+/* 游戏结束界面 */
+.game-over {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.game-over h2 {
+    color: #f3ba2f;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.game-over p {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.game-over #final-score {
+    color: #f3ba2f;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+/* 得分动画 */
+.score-animation {
+    position: fixed;
+    color: #f3ba2f;
+    font-weight: bold;
+    font-size: 1.2rem;
+    pointer-events: none;
+    z-index: 50;
+    animation: float-up 1s ease-out forwards;
+}
+
+@keyframes float-up {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+}
+
+/* 手铐动画 */
+.handcuffs {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 50px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50"><circle cx="25" cy="25" r="20" fill="none" stroke="silver" stroke-width="5"/><circle cx="75" cy="25" r="20" fill="none" stroke="silver" stroke-width="5"/><rect x="25" y="20" width="50" height="10" fill="silver"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: handcuffs-animation 1s ease-in-out;
+    z-index: 10;
+}
+
+@keyframes handcuffs-animation {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+    .game-container {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .score-container, .game-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .hole {
+        width: 80px;
+        height: 80px;
+    }
+    
+    #game-field {
+        grid-gap: 15px;
+    }
+    
+    button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+    
+    .twitter-link {
+        top: 10px;
+        right: 10px;
+    }
+    
+    .twitter-logo {
+        width: 25px;
+        height: 25px;
+    }
+}
