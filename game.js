@@ -327,8 +327,8 @@ function hitMole(event) {
             endLevel();
         }
         
-        // 检查分数是否为负
-        if (gameState.score < 0) {
+        // 检查分数是否为负，且游戏已经开始并且至少打过一只地鼠
+        if (gameState.score < 0 && gameState.molesHit > 0) {
             // 显示消息
             showMessage("你的资金已经用完了！游戏将重新开始。");
             
@@ -355,8 +355,8 @@ function missedMole() {
     // 更新显示
     updateDisplays();
     
-    // 检查分数是否为负
-    if (gameState.score < 0) {
+    // 检查分数是否为负，且游戏已经开始并且至少打过一只地鼠
+    if (gameState.score < 0 && gameState.molesHit > 0) {
         // 显示消息
         showMessage("你的资金已经用完了！游戏将重新开始。");
         
